@@ -1,6 +1,6 @@
 # IPFS Song island
 
-### Installation
+### Installation of web-dependencies
 
 *Prerequisites:* We need Node & NPM :)
 
@@ -12,4 +12,5 @@
 
 ### Publishing
 
-`make publish`
+`npx ipfs-deploy -p pinata ./public`
+
