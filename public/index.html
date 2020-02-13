@@ -39,32 +39,7 @@
 
 <div class="grid-container full height-100 background text-white">
     <div class="grid-y grid-padding-x grid-padding-y height-100">
-        <div class="cell medium-shrink background-black">
-            <div class="grid-x align-right grid-margin-x">
-                <div class="cell shrink">
-                    <button class="button fullscreen-button small hollow secondary text-uppercase" aria-hidden="true">Full screen</button>
-                    <script defer>
-                      function toggleFullScreen () {
-                        if (!document.fullscreenElement) {
-                          document.documentElement.requestFullscreen()
-                        } else {
-                          if (document.exitFullscreen) {
-                            document.exitFullscreen()
-                          }
-                        }
-                      }
-
-                      document.addEventListener('fullscreenchange', () => {
-                        const el = document.querySelector('.fullscreen-button')
-                        el.classList.toggle('hide')
-                      })
-
-                      document.querySelector('.fullscreen-button').addEventListener('click', toggleFullScreen)
-                    </script>
-                </div>
-            </div>
-        </div>
-        <div class="cell medium-auto">
+        <div class="cell auto">
             <div class="grid-x align-center-middle height-100">
                 <div class="cell medium-6 align-self-middle">
 
@@ -158,8 +133,29 @@
                 </div>
             </div>
         </div>
-        <div class="cell medium-shrink background-black">
-            <div class="grid-x align-right">
+        <div class="cell shrink background-black">
+            <div class="grid-x align-justify">
+                <div class="cell shrink">
+                    <button class="button fullscreen-button small secondary text-uppercase margin-0 padding-horizontal-1 padding-vertical-0" aria-hidden="true">Full screen</button>
+                    <script defer>
+                      function toggleFullScreen () {
+                        if (!document.fullscreenElement) {
+                          document.documentElement.requestFullscreen()
+                        } else {
+                          if (document.exitFullscreen) {
+                            document.exitFullscreen()
+                          }
+                        }
+                      }
+
+                      document.addEventListener('fullscreenchange', () => {
+                        const el = document.querySelector('.fullscreen-button')
+                        el.classList.toggle('hide')
+                      })
+
+                      document.querySelector('.fullscreen-button').addEventListener('click', toggleFullScreen)
+                    </script>
+                </div>
                 <div class="cell shrink text-uppercase">
                     <small>
                         <a href="https://github.com/johncoffee/ipfs-song-island">Copy this site!</a> |
