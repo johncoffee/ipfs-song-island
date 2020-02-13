@@ -12,56 +12,163 @@
         html {
             height: 100%;
         }
+
         a, a:hover {
             color: #f6ecc4;
         }
+
         .background {
             background-image: url("assets/IMG_20200212_205217.jpg");
             background-size: cover;
             background-position: center 75%;
         }
+
         .text-white {
             color: #fff;
         }
+
         .musicplayer {
-            background: rgba(0,0,0,0.8);
         }
+
         .background-black {
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
-<body class="height-100 background text-white">
+<body class="height-100">
 
-<div class="grid-container full height-100">
+<div class="grid-container full height-100 background text-white">
     <div class="grid-y grid-padding-x grid-padding-y height-100">
         <div class="cell medium-shrink background-black">
-            <div class="grid-x">
-                <div class="cell auto"></div>
+            <div class="grid-x align-right grid-margin-x">
                 <div class="cell shrink">
-                    Jazz songs
+                    <button class="button fullscreen-button small success text-uppercase">Full screen</button>
+                    <script defer>
+                      function toggleFullScreen () {
+                        if (!document.fullscreenElement) {
+                          document.documentElement.requestFullscreen()
+                        } else {
+                          if (document.exitFullscreen) {
+                            document.exitFullscreen()
+                          }
+                        }
+                      }
+
+                      document.addEventListener('fullscreenchange', () => {
+                        const el = document.querySelector('.fullscreen-button')
+                        el.classList.toggle('hide')
+                      })
+
+                      document.querySelector('.fullscreen-button').addEventListener('click', toggleFullScreen)
+                    </script>
                 </div>
             </div>
         </div>
         <div class="cell medium-auto">
             <div class="grid-x align-center-middle height-100">
                 <div class="cell medium-6 align-self-middle">
-                    <h1 class="text-center">
-                        <span style="color: #00FF00">j</span>
-                        <span style="color: #ffae00">a</span>
-                        <span style="color: #FFFF00">z</span>
-                        <span style="color: #2199e8">z</span>
-                        <span style="color: #8B00FF">!</span>
-                    </h1>
-                    <div class="musicplayer background-black padding-2">
-                        <audio class="width-100 margin-0" controls src="assets/song.mp3"></audio>
+
+                    <div class="tile--css_animations__demo1  margin-1">
+                        <style>
+                            .tile--css_animations__demo1 {
+                            }
+                            .tile--css_animations__demo1 div {
+                                font-size: 56px;
+                                font-family: monospace;
+                                text-align: center;
+                                text-transform: uppercase;
+                                text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
+                                color: red;
+                            }
+                            .tile--css_animations__demo1 div p {
+                                margin: 0;
+                            }
+                            .tile--css_animations__demo1 #status:hover {
+                                text-shadow: 0 0 200px #ffffff, 0 0 80px #008000, 0 0 6px #0000ff;
+                            }
+                            .tile--css_animations__demo1 #message {
+                                font-size: 20px;
+                            }
+                            .tile--css_animations__demo1 #message:hover {
+                                text-shadow: 0 0 100px red, 0 0 40px FireBrick, 0 0 8px DarkRed;
+                            }
+                            .tile--css_animations__demo1 #status {
+                                color: #fff;
+                                text-shadow: 0 0 80px #ffffff, 0 0 30px #008000, 0 0 6px #0000ff;
+                            }
+                            .tile--css_animations__demo1 #status span {
+                                animation: upper 11s linear infinite;
+                            }
+                            .tile--css_animations__demo1 #message span:nth-of-type(2) {
+                                animation: lower 10s linear infinite;
+                            }
+                            .tile--css_animations__demo1 #message span:nth-of-type(1) {
+                                text-shadow: none;
+                                opacity: .4;
+                            }
+                            @keyframes upper {
+                                0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                                    opacity: .99;
+                                    text-shadow: 0 0 80px #ffffff, 0 0 30px #008000, 0 0 6px #0000ff;
+                                }
+                                20%,
+                                21.999%,
+                                63%,
+                                63.999%,
+                                65%,
+                                69.999% {
+                                    opacity: 0.4;
+                                    text-shadow: none;
+                                }
+                            }
+                            @keyframes lower {
+                                0%, 12%, 18.999%, 23%, 31.999%, 37%, 44.999%, 46%, 49.999%, 51%, 58.999%, 61%, 68.999%, 71%, 85.999%, 96%, 100% {
+                                    opacity: 0.99;
+                                    text-shadow: 0 0 80px red, 0 0 30px FireBrick, 0 0 6px DarkRed;
+                                }
+                                19%,
+                                22.99%,
+                                32%,
+                                36.999%,
+                                45%,
+                                45.999%,
+                                50%,
+                                50.99%,
+                                59%,
+                                60.999%,
+                                69%,
+                                70.999%,
+                                86%,
+                                95.999% {
+                                    opacity: 0.4;
+                                    text-shadow: none;
+                                }
+                            }
+                        </style>
+
+                        <div>
+                            <p id="status"><span>J</span>AZZ</p>
+                            <p id="message">NO<span>W</span> PL<span>A</span>YING!</p>
+                        </div>
+                    </div>
+
+                    <div class="musicplayer background-black padding-1">
+                        <audio class="width-100 margin-0" controls src="assets/song.ogg"></audio>
                     </div>
                 </div>
             </div>
         </div>
         <div class="cell medium-shrink background-black">
-            <a href="https://github.com/johncoffee/ipfs-song-island">Source code</a> |
-            <a href="https://coolguy.website/projects/song-islands/">Song islands?</a>
+            <div class="grid-x align-right">
+                <div class="cell shrink text-uppercase">
+                    <small>
+                        <a href="https://github.com/johncoffee/ipfs-song-island">Copy this site!</a> |
+                        <a href="https://github.com/johncoffee/ipfs-song-island">Source code</a> |
+                        <a href="https://coolguy.website/projects/song-islands/">Song islands?</a>
+                    </small>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
