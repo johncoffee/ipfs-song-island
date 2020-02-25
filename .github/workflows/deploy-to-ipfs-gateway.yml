@@ -17,6 +17,6 @@ jobs:
       - run: npm install foundation-sites@6 ipfs-deploy
       - name: copy dependencies
         run: |
-          mkdir -p src/foundation-sites/
-          cp node_modules/foundation-sites/dist/css/foundation.min.css "${public_dir}/foundation-sites/"
-          cp node_modules/foundation-sites/dist/css/foundation-prototype.min.css "${public_dir}/foundation-sites/"
+          mkdir -p public/foundation-sites/
+          cp node_modules/foundation-sites/dist/css/foundation.min.css public/foundation-sites/
+          cp node_modules/foundation-sites/dist/css/foundation-prototype.min.css public/foundation-sites/
