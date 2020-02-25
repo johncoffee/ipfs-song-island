@@ -1,5 +1,4 @@
 node_modules/
 public/foundation-sites/
 .env
-**/*.mp3
-**/*.ogg
+tmp/
