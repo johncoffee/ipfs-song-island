@@ -1,0 +1,22 @@
+name: deploy to ipfs gateway
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm install foundation-sites@6 ipfs-deploy
+      - name: copy dependencies
+        run: |
+          mkdir -p src/foundation-sites/
+          cp node_modules/foundation-sites/dist/css/foundation.min.css "${public_dir}/foundation-sites/"
+          cp node_modules/foundation-sites/dist/css/foundation-prototype.min.css "${public_dir}/foundation-sites/"
