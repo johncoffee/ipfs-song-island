@@ -25,4 +25,4 @@ jobs:
           IPFS_DEPLOY_PINATA__API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__API_KEY }}
           IPFS_DEPLOY_PINATA__SECRET_API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__SECRET_API_KEY }}
         run: |
-          npx ipfs-deploy ./public -p pinata -O
+          npx ipfs-deploy ./public -p pinata -O -C
