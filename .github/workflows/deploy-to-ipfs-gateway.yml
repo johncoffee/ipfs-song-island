@@ -21,5 +21,8 @@ jobs:
           cp node_modules/foundation-sites/dist/css/foundation.min.css public/foundation-sites/
           cp node_modules/foundation-sites/dist/css/foundation-prototype.min.css public/foundation-sites/
       - name: deploy using ipfs-deploy
+        env:
+          IPFS_DEPLOY_PINATA__API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__API_KEY }}
+          IPFS_DEPLOY_PINATA__SECRET_API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__SECRET_API_KEY }}
         run: |
-          npx ipfs-deploy
+          npx ipfs-deploy ./public -p pinata -O
